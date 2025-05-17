@@ -1,4 +1,4 @@
-package com.zerobase.convpay.service;
+package com.zerobase.convpay.type;
 
 public enum MoneyUseResult {
     USE_SUCCESS,

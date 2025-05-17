@@ -1,9 +1,9 @@
 package com.zerobase.convpay.service;
 
-import com.zerobase.convpay.dto.ConvenienceType;
+import com.zerobase.convpay.type.ConvenienceType;
 import com.zerobase.convpay.dto.PayRequest;
 import com.zerobase.convpay.dto.PayResponse;
-import com.zerobase.convpay.dto.PayResult;
+import com.zerobase.convpay.type.PayResult;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,4 +36,6 @@ class ConveniencePayServiceTest {
         assertEquals(PayResult.FAIL, payResponse.getPayResult());
         assertEquals(0, payResponse.getPaidAmount());
     }
+
+
 }
