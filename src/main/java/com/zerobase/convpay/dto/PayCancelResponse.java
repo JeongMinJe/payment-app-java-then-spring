@@ -27,4 +27,12 @@ public class PayCancelResponse {
     public void setPayCancelAmount(Integer payCancelAmount) {
         this.payCancelAmount = payCancelAmount;
     }
+
+    @Override
+    public String toString() {
+        return "PayCancelResponse{" +
+                "payCancelResult=" + payCancelResult +
+                ", payCancelAmount=" + payCancelAmount +
+                '}';
+    }
 }
