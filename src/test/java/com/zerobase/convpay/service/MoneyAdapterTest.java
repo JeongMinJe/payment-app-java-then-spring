@@ -46,4 +46,16 @@ class MoneyAdapterTest {
         //then
         assertEquals(MoneyUseCancelResult.MONEY_USE_CANCEL_SUCCESS, moneyUseCancelResult);
     }
+
+    @Test
+    void money_use_cancel_fail() {
+        //given
+        Integer payCancelAmount = 99;
+
+        //when
+        MoneyUseCancelResult moneyUseCancelResult = moneyAdapter.useCancel(payCancelAmount);
+
+        //then
+        assertEquals(MoneyUseCancelResult.MONEY_USE_CANCEL_FAIL, moneyUseCancelResult);
+    }
 }

@@ -1,8 +1,11 @@
 package com.zerobase.convpay.service;
 
+import com.zerobase.convpay.dto.PayCancelRequest;
+import com.zerobase.convpay.dto.PayCancelResponse;
 import com.zerobase.convpay.type.ConvenienceType;
 import com.zerobase.convpay.dto.PayRequest;
 import com.zerobase.convpay.dto.PayResponse;
+import com.zerobase.convpay.type.PayCancelResult;
 import com.zerobase.convpay.type.PayResult;
 import org.junit.jupiter.api.Test;
 
@@ -37,5 +40,30 @@ class ConveniencePayServiceTest {
         assertEquals(0, payResponse.getPaidAmount());
     }
 
+    @Test
+    void pay_cancel_success() {
+        //given
+        PayCancelRequest payCancelRequest = new PayCancelRequest(ConvenienceType.G25, 1000);
+
+        //when
+        PayCancelResponse payCancelResponse = conveniencePayService.payCancel(payCancelRequest);
+
+        //then
+        assertEquals(PayCancelResult.PAY_CANCEL_SUCCESS, payCancelResponse.getPayCancelResult());
+        assertEquals(100, payCancelResponse.getPayCancelAmount());
+    }
+
+    @Test
+    void pay_cancel_fail() {
+        //given
+        PayCancelRequest payCancelRequest = new PayCancelRequest(ConvenienceType.G25, 99);
+
+        //when
+        PayCancelResponse payCancelResponse = conveniencePayService.payCancel(payCancelRequest);
+
+        //then
+        assertEquals(PayCancelResult.PAY_CANCEL_fAIL, payCancelResponse.getPayCancelResult());
+        assertEquals(0, payCancelResponse.getPayCancelAmount());
+    }
 
 }
