@@ -1,4 +1,5 @@
 package com.zerobase.convpay.service;
+
 import com.zerobase.convpay.dto.PayCancelRequest;
 import com.zerobase.convpay.dto.PayCancelResponse;
 import com.zerobase.convpay.dto.PayRequest;
@@ -20,7 +21,7 @@ public class ConveniencePayService {
 
         PaymentResult paymentResult = paymentInterface.payment(payRequest.getPayAmount());
 
-        if(paymentResult == PaymentResult.PAYMENT_FAIL) {
+        if (paymentResult == PaymentResult.PAYMENT_FAIL) {
             return new PayResponse(PayResult.FAIL, 0);
         }
 
@@ -39,7 +40,7 @@ public class ConveniencePayService {
 
         CancelPaymentResult cancelPaymentResult = paymentInterface.cancelPayment(payCancelRequest.getPayCancelAmount());
 
-        if(cancelPaymentResult == CancelPaymentResult.CANCEL_PAYMENT_FAIL) {
+        if (cancelPaymentResult == CancelPaymentResult.CANCEL_PAYMENT_FAIL) {
             return new PayCancelResponse(PayCancelResult.PAY_CANCEL_fAIL, 0);
         }
 
