@@ -13,6 +13,11 @@ public class UserClient {
     public static void main(String[] args) {
         // '사용자' -> 편결이 -> 머니어댑터
 
+        // 📌 변경 전: ConveniencePayService 객체를 직접 생성하였음.
+        // ConveniencePayService conveniencePayService = new ConveniencePayService();
+
+        // 📌 변경 후: 자체 프레임워크인 ApplicationConfig를 통해 미리 설정된 ConveniencePayService 객체를 받아옴.
+
         ApplicationConfig applicationConfig = new ApplicationConfig();
         ConveniencePayService conveniencePayService = applicationConfig.conveniencePayServiceDiscountedByPayMethod();
 
